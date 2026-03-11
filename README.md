@@ -3,7 +3,7 @@ A text-based adventure game for CS113 at Study.com. Make choices, shape your sto
 
 ## How to Run
 ```bash
-python3 adventure_game.py
+python adventure_game.py
 ```
 
 ## What it does
