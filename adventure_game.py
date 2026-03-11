@@ -97,6 +97,18 @@ def get_outcome_summary(decisions):
         outcome = outcome_map.get(decision, "Unknown outcome.")
         print(f"  {decision} → {outcome}")
 
+def save_game_data(player_name, decisions):
+    game_data = {
+        "player_name": player_name,
+        "decisions": decisions,
+        "outcome_count": len(decisions)
+    }
+
+    with open(f"{player_name}_game_data.json", "w") as f:
+        json.dump(game_data, f, indent=4)
+
+    print(f"\nYour game data has been saved to {player_name}_game_data.json\n")
+
 def main():
     while True:
         display_title()
@@ -111,6 +123,8 @@ def main():
 
         get_outcome_summary(decisions)
         print("=" * 40)
+
+        save_game_data(player_name, decisions)
 
         replay = input("\nWould you like to play again? (yes/no): ").lower()
         if replay != "yes":
