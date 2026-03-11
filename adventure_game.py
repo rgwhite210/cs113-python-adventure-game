@@ -17,8 +17,29 @@ def get_player_name():
         else:
             print("Invalid name. Please use only lowercase letters, numbers, or underscores.\n")
 
+def forest_path(player_name, decisions):
+    print("You find yourself at the edge of a dark forest.")
+    print("1. Enter the forest")
+    print("2. Turn back to the village")
+
+    choice = input("\nWhat do you do? (1 or 2): ")
+
+    if choice == "1":
+        print(f"\nBrave choice, {player_name}! You enter the forest and discover a hidden treasure!\n")
+        decisions.append("Entered the forest")
+    elif choice == "2":
+        print(f"\nYou return to the village and rest safely for the night.\n")
+        decisions.append("Returned to the village")
+    else:
+        print("\nInvalid choice, defaulting to turning back.\n")
+        decisions.append("Invalid choice - returned to village")
+
 def main():
     display_title()
     player_name = get_player_name()
+    decisions = []
+
+    forest_path(player_name, decisions)
+    print(f"Decisions so far: {decisions}")
 
 main()
